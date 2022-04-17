@@ -1,0 +1,11 @@
+Esto es una prueba
+
+con i = se puede insertar datos
+con el boton esc = cuando terminas de editar
+
+con :wq (dos puntos+w+q) se guarda
+
+En este momento estamos añadiendo mas lineas
+para hacer la prueba
+para abrir mi archivo en txt 
+es ideal usar notepad nombrearchivo
