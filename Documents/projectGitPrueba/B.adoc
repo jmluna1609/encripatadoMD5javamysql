@@ -1,2 +1,7 @@
 ingenieria del software
-ekjemplo de gestion de codigo fuente
+ejemplo de gestion de codigo fuente
+
+vamos a modificar el archivo 
+recuerda que si eres nuevo en git
+tienes que registrarte en el local
+sigue las instrucciones que te guia git
