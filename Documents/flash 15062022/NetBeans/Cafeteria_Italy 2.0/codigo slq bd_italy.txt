@@ -1,0 +1,35 @@
+Creando la base de datos 
+"Cafeteria Italy"
+
+Creando las tablas:
+tabla persona:
+CREATE TABLE `db_italy`.`persona` ( `ci` VARCHAR(20) NOT NULL COMMENT 'carnet identidad' , `nombre` VARCHAR(20) NULL COMMENT 'nombres' , `apellido` VARCHAR(20) NOT NULL COMMENT 'apellido o empresa' , `celular` VARCHAR(20) NULL COMMENT 'celular con whatsapp' , PRIMARY KEY (`ci`(20))) ENGINE = InnoDB;
+
+tabla trabajadores:
+CREATE TABLE `db_italy`.`trabajador` ( `id_trabajador` VARCHAR(20) NOT NULL COMMENT 'id trabajador' , `ci_Persona` VARCHAR(20) NOT NULL COMMENT 'carnet de la persona' , `usuario` VARCHAR(20) NOT NULL COMMENT 'nombre de usuario' , `contraseña` VARCHAR(40) NOT NULL COMMENT 'clave temporal' , PRIMARY KEY (`id_trabajador`(20))) ENGINE = InnoDB COMMENT = 'Registro de trabajadores';
+
+tabla producto final:
+CREATE TABLE `db_italy`.`producto_final` ( `id_producto` INT NOT NULL , `categoria` VARCHAR(20) NOT NULL , `nombre_producto` VARCHAR(20) NOT NULL , `venta_bs` DOUBLE NOT NULL , `costo_bs` DOUBLE NOT NULL , `detalle` VARCHAR(50) NOT NULL , `imagen` BLOB NOT NULL , PRIMARY KEY (`id_producto`)) ENGINE = InnoDB;
+
+tabla pedido diario:
+CREATE TABLE `db_italy`.`pedido_diario` ( `id_pedido_diario` BIGINT(40) NOT NULL AUTO_INCREMENT , `fecha` VARCHAR(20) NOT NULL , `id_producto_final_Producto_Final` INT(20) NOT NULL , `cantidad` DOUBLE NOT NULL , `venta_unitaria_bs` DOUBLE NOT NULL , `subtotal_bs` DOUBLE NOT NULL , `turno` VARCHAR(20) NOT NULL , `ci_Persona` VARCHAR(20) NOT NULL , `numero_comanda` INT(20) NOT NULL , PRIMARY KEY (`id_pedido_diario`)) ENGINE = InnoDB COMMENT = 'Aqui se va a guardar cada producto pedido en una o mas coman';
+
+tabla regisrtro total diario
+CREATE TABLE `db_italy`.`registro_total_diario` ( `fecha` VARCHAR(20) NOT NULL ) ENGINE = InnoDB;
+ALTER TABLE `registro_total_diario` ADD `numero_comanda` INT(20) NOT NULL AFTER `fecha`;
+ALTER TABLE `registro_total_diario` ADD `ci_Persona` VARCHAR(20) NOT NULL AFTER `numero_comanda`;
+ALTER TABLE `registro_total_diario` ADD `id_trabajador_Trabajador` VARCHAR(20) NOT NULL AFTER `ci_Persona`;
+ALTER TABLE `registro_total_diario` ADD `monto_total_bs` DOUBLE NOT NULL AFTER `id_trabajador_Trabajador`;
+ALTER TABLE `registro_total_diario` ADD `turno` VARCHAR(20) NOT NULL AFTER `monto_total_bs`;
+
+tabla cierre turno diario
+CREATE TABLE `db_italy`.`cierre_turno_diario` ( `id_trabajador_Trabajador` VARCHAR(20) NOT NULL ) ENGINE = InnoDB;
+ALTER TABLE `cierre_turno_diario` ADD `id_cierre` BIGINT(40) NOT NULL AUTO_INCREMENT FIRST, ADD PRIMARY KEY (`id_cierre`);
+ALTER TABLE `cierre_turno_diario` ADD `fecha` VARCHAR(20) NOT NULL AFTER `id_trabajador_Trabajador`, ADD `turno` VARCHAR(20) NOT NULL AFTER `fecha`, ADD `total_comanda` INT(20) NOT NULL AFTER `turno`;
+ALTER TABLE `cierre_turno_diario` ADD `total_turno_bs` DOUBLE NOT NULL AFTER `total_comanda`, ADD `total_compras_bs` DOUBLE NOT NULL AFTER `total_turno_bs`, ADD `total_gastos_bs` DOUBLE NOT NULL AFTER `total_compras_bs`, ADD `monto_efectivo_fisico_bs` DOUBLE NOT NULL AFTER `total_gastos_bs`, ADD `diferencia_bs` DOUBLE NOT NULL AFTER `monto_efectivo_fisico_bs`;
+ALTER TABLE `cierre_turno_diario` ADD `observacion` VARCHAR(20) NOT NULL AFTER `diferencia_bs`;
+
+tabla registro total compras/ gastos
+CREATE TABLE `db_italy`.`registro_total_compras_gastos` ( `id_trabajador_Trabajador` VARCHAR(20) NOT NULL ) ENGINE = InnoDB;
+ALTER TABLE `registro_total_compras_gastos` ADD `id_gastos` INT(20) NOT NULL AUTO_INCREMENT FIRST, ADD PRIMARY KEY (`id_gastos`);
+ALTER TABLE `registro_total_compras_gastos` ADD `fecha` VARCHAR(20) NOT NULL AFTER `id_trabajador_Trabajador`, ADD `tipo_registro` VARCHAR(20) NOT NULL AFTER `fecha`, ADD `detalle` VARCHAR(20) NOT NULL AFTER `tipo_registro`, ADD `monto_bs` DOUBLE NOT NULL AFTER `detalle`, ADD `turno` VARCHAR(20) NOT NULL AFTER `monto_bs`;

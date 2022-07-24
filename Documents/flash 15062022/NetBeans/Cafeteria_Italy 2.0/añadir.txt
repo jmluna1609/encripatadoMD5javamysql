@@ -1,0 +1,61 @@
+24/04/2022
+-Quitar el menu de cocteles.
+
+-guardar los datos del cliente
+cliente frecuente
+
+Nombre, apellido, celular.
+
+Se necesita enviar un mensaje que indique una promocion
+del momento.
+
+cliente frecuente = de 10 a mas visitas, para el sorteo 
+o pomocion.
+
+ingresar los datos al momento de realizar la compra:
+
+despues de ingresar el nombre y el carnet
+el sistema verificara si el cliente esta visitando
+de 10 veces o mas... 
+
+Si es mayor o igual a 10 veces entonces solicitar 
+celular con whatsapp.
+
+-----------------------------------------------------
+Añadir heladeria y cocteles al menu.
+
+----------------------------------------------------
+Añadir las opciones de:
+pago con tarjeta y efectivo.
+----------------------------------------------------
+
+En el ticket de comanda
+añadir nombre de la empresa
+numero de comanda
+si es para llevar o mesa o delivery
+descripcion y montos en bs
+
+en la parte de abajo del ticket pedir que llenen
+"scanea y llena el formulario QR y llevate una sorpresa"
+
+* QR y formulario impreso
+dentro del QR va haber un formulario (estudio de mercado)
+Preguntas
+Nombre Apellido
+Celular
+cumpleaños
+1. ¿del 1 al 10 cuanto calificas el servicio y el ambiente? y porque?
+2. Cual es el producto que mas te gustó? porque?
+3. ¿de que zona nos visitas?
+4. ¿en que podemos mejorar Para darte un excelente servicio?
+5. ¿como conociste pasteleria Italy?
+ a) Redes Sociales b) amigos/ familiares c) casual
+6. ¿Aceparias que la pastelería Italy te haga una llamada y un obsequio el dia de 
+tus cumpleaños? SI / NO
+7. te gutaria que pasteleria Italy amplie su menu, sirviendo cocteles?
+SI / NO
+
+
+
+
+
